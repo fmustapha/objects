@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import MenuItem from "./MenuItem";
+import '../style/Menu.css';
 
 class Menu extends Component {
   render() {
       const { icons, displayPage } = this.props;
     return (
-      <div>
+      <nav className="nav">
         {/* Menu Icons */}
         {icons.map(icon => (
           <MenuItem
@@ -13,9 +14,10 @@ class Menu extends Component {
             src={icon.src}
             alt={icon.alt}
             showPage={displayPage}
+            animation={icon.animation}
           />
         ))}
-      </div>
+      </nav>
     );
   }
 }

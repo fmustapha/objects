@@ -1,0 +1,33 @@
+.account {
+    display: flex;
+    margin: 20px;
+    align-items: flex-start;
+    text-align: left;
+}
+/* section {
+    width: 400px;
+    height: 500px;
+    padding: 50px;
+    margin: 5px 30px 5px 30px;
+    border: 2px solid grey;
+    border-radius: 10%;
+} */
+
+.account .header {
+   justify-content: center
+}
+
+.card {
+    width: 18rem;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.account-right{
+    margin: 130px auto;
+}
+
+.fieldset {
+    max-width: 80%;
+    min-width: 40%;
+}

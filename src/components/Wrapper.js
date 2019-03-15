@@ -3,7 +3,7 @@ import React, { Component } from "react";
 // components
 import Menu from "./Menu";
 import App from "../App";
-import MathComp from "./MathComp";
+import AccountComponent from "./AccountComponent";
 
 //icons
 import icons from "../images";
@@ -37,8 +37,13 @@ class Wrapper extends Component {
       case "calender":
         console.log("Check your calender");
         break;
-      case "calculations":
-        console.log("Know your math");
+      case "accounts":
+      page = "accounts";
+      this.setState(() => {
+        return {
+          page: page
+        };
+      });
         break;
       default:
         console.log("No page for this icon exists yet");
@@ -52,7 +57,7 @@ class Wrapper extends Component {
         <Menu icons={icons} displayPage={this.handlePages} />
         <div className="pages">
           {page === "home" && <App />}
-          {page === "smile" && <MathComp />}
+          {page === "accounts" && <AccountComponent />}
         </div>
       </div>
     );

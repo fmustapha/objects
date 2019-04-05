@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Accounts from "./accounts";
+import AccountStatus from './AccountStatusComponent';
 import Account from "./account";
 import "../style/AccountComponent.css";
 
@@ -24,7 +25,6 @@ class AccountComponent extends Component {
   handleCreateAccount = () => {
       const { myAccounts, accountName, balance } = this.state;
       const newAccount = new Account(balance, accountName);
-      console.log(newAccount);
       myAccounts.addAccount(newAccount);
       this.setState({ myAccounts });
   }
@@ -217,12 +217,12 @@ class AccountComponent extends Component {
         <div className="account-right">
           {myAccounts &&
             myAccounts.accounts && 
-            myAccounts.accounts.length > 0 && <h2 className="total">Total Value:{myAccounts.getTotalValue(myAccounts.accounts)}</h2>}
+            myAccounts.accounts.length > 0 && <AccountStatus {...this.state} />}
           {myAccounts && myAccounts.accounts && this.renderAccounts()}
         </div>
       </div>
     );
   }
 }
-
+//<h2 className="total">Total Value:{myAccounts.getTotalValue(myAccounts.accounts)}
 export default AccountComponent;

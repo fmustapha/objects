@@ -1,5 +1,5 @@
 import Accounts from './accounts';
-const newAccounts = [
+const myAccounts = [
 {
     balance: 200,
     name: 'savings',
@@ -29,19 +29,19 @@ describe ('Accounts Class', () => {
     });
 
     it('should add new accounts', () => {
-        newAccount.addAccount(newAccounts[0]);
-        newAccount.addAccount(newAccounts[1]);
-        newAccount.addAccount(newAccounts[2]);
-        expect(newAccount.accounts).toEqual(newAccounts);
+        newAccount.addAccount(myAccounts[0]);
+        newAccount.addAccount(myAccounts[1]);
+        newAccount.addAccount(myAccounts[2]);
+        expect(newAccount.accounts).toEqual(myAccounts);
     });
 
     it('should return an owners accounts', () => {
-        expect(newAccount.getAllAccounts()).toEqual(newAccounts);
+        expect(newAccount.getAllAccounts()).toEqual(myAccounts);
     });
 
     it('should return an owners account', () => {
         const Id = 3;
-        expect(newAccount.getAnAccount(Id)[0]).toEqual(newAccounts[2]);
+        expect(newAccount.getAnAccount(Id)[0]).toEqual(myAccounts[2]);
     });
 
     it('should add two numbers together', () => {
@@ -52,7 +52,14 @@ describe ('Accounts Class', () => {
 
     it('should return the total value of accounts', () => {
         const totalValue = newAccount.accounts[0].balance + newAccount.accounts[1].balance + newAccount.accounts[2].balance;
-        console.log(newAccount.getTotalValue(newAccounts), "<---totalValue")
-        expect(newAccount.getTotalValue(newAccounts)).toEqual(totalValue);
+        expect(newAccount.getTotalValue(myAccounts)).toEqual(totalValue);
+    });
+
+    it('should return the account with the minimum balance', () => {
+        expect(newAccount.getMinBalance(myAccounts)[0]).toEqual(myAccounts[0]);
+    });
+
+    it('should return the account with the maximum balance', () => {
+        expect(newAccount.getMaxBalance(myAccounts)[0]).toEqual(myAccounts[2]);
     });
 });

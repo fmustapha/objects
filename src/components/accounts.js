@@ -30,6 +30,17 @@ class Accounts {
     sumNumbers(accumulator, currentValue) {
         return accumulator + currentValue;
     }
+    getMaxBalance(accounts) {
+        const accountBalances = accounts.map( account => account.balance);
+        const maxBalance = Math.max(...accountBalances);
+        return accounts.filter( account => account.balance === maxBalance && account)
+    }
+
+    getMinBalance() {
+        const accountBalances = this.accounts.map( account => account.balance);
+        const minBalance = Math.min(...accountBalances);
+        return this.accounts.filter( account => account.balance === minBalance && account)
+    }
 }
 
 export default Accounts;

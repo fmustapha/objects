@@ -15,7 +15,7 @@ class AccountComponent extends Component {
     });
   };
 
-    handleSubmit = () => {
+  handleSubmit = () => {
       const { name } = this.state;
       const myAccounts = new Accounts(name);
       this.setState({ myAccounts });
@@ -77,7 +77,7 @@ class AccountComponent extends Component {
   };
 
   render() {
-    const { accountName, myAccounts, accountId } = this.state;
+    const { accountName, myAccounts} = this.state;
     return (
       <div className="account">
         <section>
@@ -103,6 +103,7 @@ class AccountComponent extends Component {
                 <button
                   type="submit"
                   id="submitBtn"
+                  onKeyDown={(e)=> e.target.key ==="13" && this.handleSubmit}
                   onClick={this.handleSubmit}
                   className="btn btn-info"
                 >
@@ -214,12 +215,10 @@ class AccountComponent extends Component {
           </fieldset>
         </section>
         <div className="account-right">
-          {this.state.myAccounts &&
-            this.state.myAccounts.accounts && 
-            this.state.myAccounts.accounts.length > 0 && <h2>Total Value:{this.state.myAccounts.getTotalValue()}</h2>}
-          {this.state.myAccounts &&
-            this.state.myAccounts.accounts &&
-            this.renderAccounts()}
+          {myAccounts &&
+            myAccounts.accounts && 
+            myAccounts.accounts.length > 0 && <h2 className="total">Total Value:{myAccounts.getTotalValue(myAccounts.accounts)}</h2>}
+          {myAccounts && myAccounts.accounts && this.renderAccounts()}
         </div>
       </div>
     );

@@ -1,16 +1,23 @@
 import Accounts from './accounts';
-
-const account1 = {
+const newAccounts = [
+{
     balance: 200,
     name: 'savings',
     id: 1
-};
+},
 
-const account2 = {
+{
     balance: 600,
     name: 'current',
     id: 2
-};
+},
+
+{
+    balance: 1000,
+    name: 'checking',
+    id: 3
+    }
+]
 
 const newAccount = new Accounts("Faith");
 
@@ -22,22 +29,30 @@ describe ('Accounts Class', () => {
     });
 
     it('should add new accounts', () => {
-        newAccount.addAccount(account1);
-        newAccount.addAccount(account2);
-        expect(newAccount.accounts).toEqual([account1, account2]);
+        newAccount.addAccount(newAccounts[0]);
+        newAccount.addAccount(newAccounts[1]);
+        newAccount.addAccount(newAccounts[2]);
+        expect(newAccount.accounts).toEqual(newAccounts);
     });
 
     it('should return an owners accounts', () => {
-        expect(newAccount.getAllAccounts()).toEqual([account1, account2]);
+        expect(newAccount.getAllAccounts()).toEqual(newAccounts);
     });
 
     it('should return an owners account', () => {
-        expect(newAccount.getAnAccount(1)).toEqual([account1]);
+        const Id = 3;
+        expect(newAccount.getAnAccount(Id)[0]).toEqual(newAccounts[2]);
+    });
+
+    it('should add two numbers together', () => {
+        let accumulator = 19; const arrValue = 10;
+        const expectedValue = accumulator + arrValue
+        expect(newAccount.sumNumbers(accumulator, arrValue)).toEqual(expectedValue);
     });
 
     it('should return the total value of accounts', () => {
-        newAccount.getTotalValue();
-        const value = account1.balance + account2.balance;
-        expect(newAccount.value).toEqual(value);
+        const totalValue = newAccount.accounts[0].balance + newAccount.accounts[1].balance + newAccount.accounts[2].balance;
+        console.log(newAccount.getTotalValue(newAccounts), "<---totalValue")
+        expect(newAccount.getTotalValue(newAccounts)).toEqual(totalValue);
     });
 });

@@ -1,8 +1,8 @@
 
 class Accounts {
-    constructor(name, accounts = [], value=0) {
+    constructor(name, accounts=[]) {
         this.name = name;
-        this.value = value;
+        this.value = this.getTotalValue(accounts);
         this.accounts = accounts;    
     }
 
@@ -23,11 +23,12 @@ class Accounts {
         return this.accounts = this.accounts.filter((account) => account.id !== accountId);
     }
 
-    getTotalValue() {
-        this.accounts.forEach(account => {
-            this.value+=account.balance;
-        });
-        return this.value;
+    getTotalValue(accounts) {
+        return accounts.map( account => account.balance ).reduce(this.sumNumbers, 0)
+    }
+
+    sumNumbers(accumulator, currentValue) {
+        return accumulator + currentValue;
     }
 }
 

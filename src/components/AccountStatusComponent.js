@@ -22,4 +22,3 @@ const AccountStatusComponent = (props) => {
 }
  
 export default AccountStatusComponent;
-

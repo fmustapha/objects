@@ -23,7 +23,7 @@ const newAccount = new Accounts("Faith");
 
 describe ('Accounts Class', () => {
     
-    it('should create accounts objects', () => {
+    it('should create an account name and an accounts objects', () => {
         expect(newAccount.name).toBe("Faith");
         expect(newAccount.accounts).toEqual([]);
     });

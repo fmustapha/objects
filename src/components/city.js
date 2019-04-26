@@ -35,8 +35,6 @@ class City {
         } else {
             return 'Your city has no size';
         }
-
-        // return name;
     }
 }
 

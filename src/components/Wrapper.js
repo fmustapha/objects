@@ -4,6 +4,7 @@ import React, { Component } from "react";
 import Menu from "./Menu";
 import App from "../App";
 import AccountComponent from "./AccountComponent";
+import CityComponent from './CityComponent/CityComponent'
 
 //icons
 import icons from "../images";
@@ -58,6 +59,7 @@ class Wrapper extends Component {
         <div className="pages">
           {page === "home" && <App />}
           {page === "accounts" && <AccountComponent />}
+          {page === "smile" && <CityComponent />}
         </div>
       </div>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 //stylesheet
+import 'typeface-roboto';
 import './index.css';
 import Wrapper from './components/Wrapper'; 
 
